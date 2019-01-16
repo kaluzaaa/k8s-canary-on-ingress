@@ -1,11 +1,11 @@
-FROM golang:alpine as builder
-RUN mkdir /build 
-ADD . /build/
-WORKDIR /build 
-RUN go build -o main .
+FROM golang:latest as builder
+WORKDIR /go/src/app
+COPY . .
+RUN go get -d -v
+RUN go build -v
 
-FROM alpine
-COPY --from=builder /build/main /app/
+FROM debian:stretch-slim
+COPY --from=builder /go/src/app/app /app/
 WORKDIR /app
 EXPOSE 8080
-CMD ["./main"]
+CMD ["./app"]
