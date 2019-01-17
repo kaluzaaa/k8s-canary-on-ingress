@@ -21,6 +21,14 @@ func pet(w http.ResponseWriter, r *http.Request) {
 	w.Write([]byte(message))
 }
 
+func gif(w http.ResponseWriter, r *http.Request) {
+	clientIP := realip.FromRequest(r)
+	log.Println("GET /pet from", clientIP)
+	message := "https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif"
+	enableCors(&w)
+	w.Write([]byte(message))
+}
+
 func main() {
 	logger := log.New(os.Stdout, "", log.LstdFlags)
 	logger.Println("Server is starting...")

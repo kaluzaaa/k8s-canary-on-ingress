@@ -15,8 +15,16 @@ func enableCors(w *http.ResponseWriter) {
 
 func pet(w http.ResponseWriter, r *http.Request) {
 	clientIP := realip.FromRequest(r)
-	log.Println("GET /pet from", clientIP)
+	log.Println("GET /gif from", clientIP)
 	message := "Dogs are always happy to see you!"
+	enableCors(&w)
+	w.Write([]byte(message))
+}
+
+func gif(w http.ResponseWriter, r *http.Request) {
+	clientIP := realip.FromRequest(r)
+	log.Println("GET /gif from", clientIP)
+	message := "https://media.giphy.com/media/mCRJDo24UvJMA/giphy.gif"
 	enableCors(&w)
 	w.Write([]byte(message))
 }
