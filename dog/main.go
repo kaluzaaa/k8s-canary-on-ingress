@@ -32,7 +32,8 @@ func gif(w http.ResponseWriter, r *http.Request) {
 func main() {
 	logger := log.New(os.Stdout, "", log.LstdFlags)
 	logger.Println("Server is starting...")
-	http.HandleFunc("/", pet)
+	http.HandleFunc("/pet", pet)
+	http.HandleFunc("/gif", gif)
 	if err := http.ListenAndServe(":8080", nil); err != nil {
 		panic(err)
 	}
