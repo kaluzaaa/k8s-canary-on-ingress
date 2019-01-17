@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: app
-        image: lukaszkaluzny/k8s-canary-on-ingress:app
+        image: lukaszkaluzny/k8s-canary-on-ingress:web
         imagePullPolicy: Always
         ports:
         - containerPort: 80
