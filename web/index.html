@@ -44,13 +44,13 @@
         $(document).ready(function () {
             $("#normal").click(function () {
                 $.ajax({
-                    url: "http://localhost/pet"
+                    url: "/pet"
                 }).then(function (data) {
                     $("#h1").text(data);
                     console.log(data);
                 });
                 $.ajax({
-                    url: "http://localhost/gif"
+                    url: "/gif"
                 }).then(function (data) {
                     $("#img").attr("src",data);
                     console.log(data);
@@ -59,7 +59,7 @@
             );
             $("#header").click(function () {
                 $.ajax({
-                    url: "http://localhost/pet",
+                    url: "/pet",
                     headers: {
                         'dog-lover': 'always'
                     }
@@ -68,7 +68,7 @@
                     console.log(data);
                 });
                 $.ajax({
-                    url: "http://localhost/gif",
+                    url: "/gif",
                     headers: {
                         'dog-lover': 'always'
                     }
@@ -81,13 +81,13 @@
             $("#cookie").click(function () {
                 Cookies.set('dog_lover', 'always');
                 $.ajax({
-                    url: "http://localhost/pet"
+                    url: "/pet"
                 }).then(function (data) {
                     $("#h1").text(data);
                     console.log(data);
                 });
                 $.ajax({
-                    url: "http://localhost/gif"
+                    url: "/gif"
                 }).then(function (data) {
                     $("#img").attr("src",data);
                     console.log(data);
